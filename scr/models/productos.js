@@ -11,7 +11,6 @@ const obtieneProductosTodos = async () => {
   SQLQuery = `
     SELECT id,categoria_id,titulo,subtitulo,precio,url_img as imagen,sku
     FROM productos
-    WHERE eliminado = FALSE
     `
   const {rows} = await DB.query(SQLQuery)
   return rows
@@ -22,7 +21,6 @@ const obtieneProductoId = async (idProduct) => {
     SELECT id,categoria_id,titulo,subtitulo,precio,url_img as imagen,sku,descripcion
     FROM productos
     WHERE id = %L
-    and eliminado = FALSE
     `,idProduct
   )
   const {rows} = await DB.query(SQLQuery)
@@ -63,7 +61,6 @@ const modificaProducto = async(id,titulo,subtitulo,categoria_id,precio,descripci
       stock = %L,
       url_img = %L
     WHERE id = %L
-    and eliminado = FALSE
     RETURNING *`,
   titulo,
   subtitulo,
@@ -80,15 +77,11 @@ const {rows} = await DB.query(SQLQuery)
 return Boolean(rows)
 }
 
-const eliminaProducto = async() =>{
-
-}
 
 module.exports =  {
   obtieneCategorias,
   obtieneProductosTodos,
   obtieneProductoId,
   agregaProducto,
-  modificaProducto,
-  eliminaProducto
+  modificaProducto
 }

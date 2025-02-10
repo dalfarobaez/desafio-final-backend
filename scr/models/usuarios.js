@@ -12,8 +12,8 @@ const registerUsuario = async (email,hashedPass,nombre,apellido,telefono) => {
     email,
     telefono
   )
-  const {rowsCount} = await DB.query(SQLQuery)
-  return Boolean(rowsCount)
+  const {rows} = await DB.query(SQLQuery)
+  return Boolean(rows)
 }
 
 const loginUsuario = async (email) => {
@@ -26,7 +26,17 @@ const loginUsuario = async (email) => {
   return rows
 }
 
+const getUsuario = async (id) => {
+  const SQLQuery = format(`
+    SELECT email,nombre,apellido,telefono,rol_id,activo FROM usuarios
+    WHERE id = %L`,
+    id)
+  const {rows,rowCount} = await DB.query(SQLQuery)
+  return {rows,rowCount}
+}
+
 module.exports =  {
   registerUsuario,
-  loginUsuario
+  loginUsuario,
+  getUsuario
 }

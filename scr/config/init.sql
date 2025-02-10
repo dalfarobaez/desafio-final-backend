@@ -1,4 +1,4 @@
--- Active: 1730676546542@@127.0.0.1@5432@desafio-Diego-Alfaro-931
+-- Active: 1730676546542@@127.0.0.1@5432@forkdl
 drop database forkdl;
 
 CREATE DATABASE forkdl;
@@ -44,7 +44,6 @@ CREATE TABLE productos (
   destacado BOOLEAN,
   stock INT,
   url_img VARCHAR(255),
-  eliminado,
   FOREIGN KEY (categoria_id) REFERENCES categorias(id)
 )
 
@@ -79,8 +78,7 @@ VALUES
     true,
     true,
     15,
-    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP01279-beef-bourguignon-fam-frontal-830-1732567123448.jpg',
-    false
+    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP01279-beef-bourguignon-fam-frontal-830-1732567123448.jpg'
   ),
   (
     DEFAULT,
@@ -93,8 +91,7 @@ VALUES
     true,
     false,
     8,
-    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP01252-arroz-arabe-familiar-frontal-1702299574034.jpg',
-    false
+    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP01252-arroz-arabe-familiar-frontal-1702299574034.jpg'
   ),
   (
     DEFAULT,
@@ -107,8 +104,7 @@ VALUES
     true,
     false,
     12,
-    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP02096-lasana-pollo-champinon-congelada-fam-packaging-frontal-pc-830-1727733273169.jpg',
-    false
+    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP02096-lasana-pollo-champinon-congelada-fam-packaging-frontal-pc-830-1727733273169.jpg'
   ),
   (
     DEFAULT,
@@ -121,8 +117,7 @@ VALUES
     true,
     false,
     31,
-    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP01259-ravioles-zapallo-salsa-cuatro-quesos-packaging-frontal-830-1709929575243.jpg',
-    false
+    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP01259-ravioles-zapallo-salsa-cuatro-quesos-packaging-frontal-830-1709929575243.jpg'
   ),
   (
     DEFAULT,
@@ -135,8 +130,7 @@ VALUES
     true,
     true,
     18,
-    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP03072-Poke-tataki-atu%CC%81n%2C-qui%CC%81noa-y-mango-Frontal-Packaging-tag-ch-830-1728087275597.jpg',
-    false
+    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP03072-Poke-tataki-atu%CC%81n%2C-qui%CC%81noa-y-mango-Frontal-Packaging-tag-ch-830-1728087275597.jpg'
   ),
   (
     DEFAULT,
@@ -149,8 +143,7 @@ VALUES
     true,
     false,
     22,
-    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP01037-fetuccini-con-camarones-sin-brocoli-map-830-1623855171613.jpg',
-    false
+    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP01037-fetuccini-con-camarones-sin-brocoli-map-830-1623855171613.jpg'
   ),
   (
     DEFAULT,
@@ -163,8 +156,7 @@ VALUES
     true,
     false,
     10,
-    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP05049-mini-mousse-chocolate-75g-1595442611090-1677078114430.jpg',
-    false
+    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP05049-mini-mousse-chocolate-75g-1595442611090-1677078114430.jpg'
   ),
   (
     DEFAULT,
@@ -177,8 +169,7 @@ VALUES
     true,
     true,
     12,
-    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP05057-mini-cuatro-leches-manjar-1-1595984403804-1677078396173.jpg',
-    false
+    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP05057-mini-cuatro-leches-manjar-1-1595984403804-1677078396173.jpg'
   ),
   (
     DEFAULT,
@@ -191,8 +182,7 @@ VALUES
     true,
     false,
     15,
-    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP05058-mini-mousse-choco-blanco-sin-azucar-75g-1595443025207-1677078506372.jpg',
-    false
+    'https://corpora-fork.s3.amazonaws.com/back_img/PTPP05058-mini-mousse-choco-blanco-sin-azucar-75g-1595443025207-1677078506372.jpg'
   )
 
   INSERT INTO rol

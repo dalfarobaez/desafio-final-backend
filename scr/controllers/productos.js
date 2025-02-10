@@ -1,4 +1,4 @@
-const {obtieneCategorias,obtieneProductosTodos,obtieneProductoId,agregaProducto,modificaProducto,eliminaProducto} = require('../models/productos')
+const {obtieneCategorias,obtieneProductosTodos,obtieneProductoId,agregaProducto,modificaProducto} = require('../models/productos')
 
 const handleGetCategorias = async(req,res) => {
   const result = await obtieneCategorias()
@@ -41,15 +41,11 @@ const handlePutProduct = async(req,res) => {
   }
 }
 
-const handleDeleteProduct = async(req,res) => {
-
-}
 
 module.exports = {
   handleGetCategorias,
   handleGetProductsAll,
   handleGetProductId,
   handlePostProduct,
-  handlePutProduct,
-  handleDeleteProduct
+  handlePutProduct
 }
