@@ -6,13 +6,17 @@ const handlePostRegister = async (req,res) => {
   const {email,password,nombre,apellido,telefono} = req.body
   const hashedPass = hashPassword(password)
   const result = await registerUsuario(email,hashedPass,nombre,apellido,telefono)
-  const token = signToken(email)
-  const data = {'token':token}
-  res.status(200).json(data)
+  if (result) {
+    const token = signToken(email)
+    const data = {'token':token}
+    res.status(200).json(data)
+  } else {
+    res.status(502)
+  }
 }
 
 const handlePostLogin = async (req,res) => {
-  const {email,password} = req.body  
+  const {email,password} = req.body
   const user = await loginUsuario(email)
   const result = verifyPassword(password,user[0].hashtoken)
   let data

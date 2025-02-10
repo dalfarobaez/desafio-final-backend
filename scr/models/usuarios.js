@@ -12,7 +12,6 @@ const registerUsuario = async (email,hashedPass,nombre,apellido,telefono) => {
     email,
     telefono
   )
-  console.log(SQLQuery)
   const {rowsCount} = await DB.query(SQLQuery)
   return Boolean(rowsCount)
 }
