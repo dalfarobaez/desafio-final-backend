@@ -1,6 +1,6 @@
 const {Router} = require('express')
 const {handleGetCategorias,handleGetProductsAll,handleGetProductId} = require('../controllers/productos')
-const {handlePostRegister} = require('../controllers/usuarios')
+const {handlePostRegister,handlePostLogin} = require('../controllers/usuarios')
 
 const router = Router()
 
@@ -10,5 +10,6 @@ router.get('/products/all',handleGetProductsAll)
 router.get('/products/:id',handleGetProductId)
 
 router.post('/register',handlePostRegister)
+router.post('/login',handlePostLogin)
 
 module.exports = router;

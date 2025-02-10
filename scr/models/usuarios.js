@@ -11,12 +11,23 @@ const registerUsuario = async (email,hashedPass,nombre,apellido,telefono) => {
     hashedPass,
     email,
     telefono
-   )
+  )
   console.log(SQLQuery)
   const {rowsCount} = await DB.query(SQLQuery)
   return Boolean(rowsCount)
 }
 
+const loginUsuario = async (email) => {
+  const SQLQuery = format(`
+    SELECT email,hashtoken FROM usuarios
+    WHERE email = %L`,
+    email
+  )
+  const {rows} = await DB.query(SQLQuery)
+  return rows
+}
+
 module.exports =  {
-  registerUsuario
+  registerUsuario,
+  loginUsuario
 }
