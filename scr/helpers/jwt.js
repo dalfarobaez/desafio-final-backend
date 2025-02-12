@@ -15,8 +15,14 @@ const decodeToken = (token) => {
   return jwt.decode(token)
 }
 
+const getHeadersToken = (req) => {
+  const Authorization = req.header("Authorization")
+  return Authorization.split("Bearer ")[1]
+}
+
 module.exports = {
   signToken,
   verifyToken,
-  decodeToken
+  decodeToken,
+  getHeadersToken
 }

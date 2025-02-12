@@ -35,8 +35,20 @@ const getUsuario = async (id) => {
   return {rows,rowCount}
 }
 
+const getAdmin = async () => {
+  const SQLQuery = `
+      SELECT DISTINCT email
+      FROM usuarios u
+      LEFT JOIN rol r on r.id = u.rol_id
+      WHERE r.nombre = 'Administrador'
+    `
+  const {rows} = await DB.query(SQLQuery)
+  return {rows}
+}
+
 module.exports =  {
   registerUsuario,
   loginUsuario,
-  getUsuario
+  getUsuario,
+  getAdmin
 }
