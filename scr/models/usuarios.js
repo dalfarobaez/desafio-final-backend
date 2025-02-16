@@ -5,7 +5,7 @@ const registerUsuario = async (email, hashedPass, nombre, apellido, telefono) =>
   SQLQuery = format(
     `
       INSERT INTO usuarios
-      VALUES (DEFAULT,%L,%L,%L,2,%L,%L,TRUE)
+      VALUES (DEFAULT,%L,%L,%L,2,%L,%s,TRUE)
       RETURNING *`,
     nombre,
     apellido,
@@ -32,7 +32,7 @@ const getUsuario = async (id) => {
   const SQLQuery = format(
     `
     SELECT email,nombre,apellido,telefono,rol_id,activo FROM usuarios
-    WHERE id = %L`,
+    WHERE id = %s`,
     id
   );
   const { rows, rowCount } = await DB.query(SQLQuery);
