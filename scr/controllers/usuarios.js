@@ -22,7 +22,7 @@ const handlePostRegister = async (req, res, next) => {
         phone: result[0].telefono,
       });
       const data = { token: token };
-      res.status(200).json(data);
+      return res.status(200).json(data);
     } else {
       const error = 'register_error';
       next(error);
@@ -51,12 +51,12 @@ const handlePostLogin = async (req, res, next) => {
         });
         data = { token: token };
       } else {
-        data = 'Contraseña incorrecta';
+        data = {'msg':'Contraseña incorrecta'};
       }
     } else {
-      data = 'Usuario incorrecto';
+      data = {'msg':'Usuario incorrecto'};
     }
-    res.send(data);
+    return res.send(data);
   } catch (error) {
     next(error);
   }
@@ -79,7 +79,7 @@ const handleGetUserId = async (req, res, next) => {
       const error = 'unauthorized';
       next(error);
     } else {
-      res.status(200).json(rows);
+      return res.status(200).json(rows);
     }
   } catch (error) {
     next(error);
