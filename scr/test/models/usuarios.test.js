@@ -43,7 +43,7 @@ describe('MODELS USUARIOS TEST', () => {
 
     const resut = await registerUsuario(email,hashedPass,nombre,apellido,telefono)
 
-    expect(resut).toBe(true)
+    expect(resut).toBe(user)
     expect(DB.query).toHaveBeenCalledTimes(3)
   })
 })
