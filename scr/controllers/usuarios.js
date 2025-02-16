@@ -41,7 +41,7 @@ const handlePostLogin = async (req, res, next) => {
     if (user.length > 0) {
       result = verifyPassword(password, user[0].hashtoken);
       if (result) {
-        console.log('user', user);
+        // console.log('user', user);
         const token = signToken({
           email,
           roleId: user[0].rol_id,

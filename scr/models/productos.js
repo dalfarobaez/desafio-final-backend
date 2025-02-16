@@ -30,7 +30,7 @@ const obtieneProductoId = async (idProduct) => {
 const agregaProducto = async (sku,titulo,subtitulo,categoria_id,precio,descripcion,destacado,stock,url_img,activo) => {
   SQLQuery = format(`
       INSERT INTO productos
-      VALUES(DEFAULT,%L,%L,%L,%L,%L,%L,%L,%L,%L,%L)
+      VALUES(DEFAULT,%L,%L,%L,%L,%s,%s,%s,%s,%s,%L)
       RETURNING *`,
     sku,
     titulo,
@@ -38,8 +38,8 @@ const agregaProducto = async (sku,titulo,subtitulo,categoria_id,precio,descripci
     descripcion,
     categoria_id,
     precio,
-    activo,
-    destacado,
+    activo ? 'true' : 'false',
+    destacado ? 'true' : 'false',
     stock,
     url_img
   )
@@ -54,21 +54,21 @@ const modificaProducto = async(id,titulo,subtitulo,categoria_id,precio,descripci
       titulo = %L,
       subtitulo = %L,
       descripcion = %L,
-      categoria_id = %L,
-      precio = %L,
-      activo = %L,
-      destacado = %L,
-      stock = %L,
+      categoria_id = %s,
+      precio = %s,
+      activo = %s,
+      destacado = %s,
+      stock = %s,
       url_img = %L
-    WHERE id = %L
+    WHERE id = %s
     RETURNING *`,
   titulo,
   subtitulo,
   descripcion,
   categoria_id,
   precio,
-  activo,
-  destacado,
+  activo ? 'true' : 'false',
+  destacado ? 'true' : 'false',
   stock,
   url_img,
   id

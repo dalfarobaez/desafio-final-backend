@@ -68,7 +68,7 @@ const handlePutProduct = async(req,res,next) => {
     const {titulo,subtitulo,categoria_id,precio,descripcion,destacado,stock,url_img,activo} = req.body
     const {id} = req.params
     const result = await modificaProducto (id,titulo,subtitulo,categoria_id,precio,descripcion,destacado,stock,url_img,activo)
-    if (result.length>0) {
+    if (result) {
       const msg = {'msg':'Producto modificado con éxito'}
       return res.status(200).json(msg)
     } else {
