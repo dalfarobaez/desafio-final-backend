@@ -69,7 +69,7 @@ const handleGetUserId = async (req, res, next) => {
     const token = getHeadersToken(req);
     verifyToken(token);
     const user = decodeToken(token);
-    const admin = await ValidateAdmin(user);
+    const admin = await ValidateAdmin(user.email);
     const { rows, rowCount } = await getUsuario(id);
 
     if (rowCount == 0) {

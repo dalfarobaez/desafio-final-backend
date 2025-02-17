@@ -35,7 +35,8 @@ const handlePostProduct = async(req,res,next) => {
     const token = getHeadersToken(req)
     verifyToken(token)
     const user = decodeToken(token)
-    const admin = await ValidateAdmin(user)
+    // console.log(user.email)
+    const admin = await ValidateAdmin(user.email)
     if (!admin) {
       const msg = {'msg':'Accion solo para administradores'}
       return res.status(402).json(msg)
@@ -60,7 +61,7 @@ const handlePutProduct = async(req,res,next) => {
     const token = getHeadersToken(req)
     verifyToken(token)
     const user = decodeToken(token)
-    const admin = await ValidateAdmin(user)
+    const admin = await ValidateAdmin(user.email)
     if (!admin) {
       const msg = {'msg':'Solo para administradores'}
       return res.status(402).json(msg)
